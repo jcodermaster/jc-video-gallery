@@ -43,11 +43,17 @@ class JC_VIDEO_GALLERY{
             $jcvg_video_per_page = get_field('jcvg_video_per_page', $postID);
             $jcvg_class_optional = get_field('jcvg_class_optional', $postID);
             $jcvg_id_optional = get_field('jcvg_id_optional', $postID);
+            $jcvg_text_alignment = get_field('jcvg_text_alignment', $postID);
+            $jcvg_video_gallery_display = get_field('jcvg_video_gallery_display', $postID);
 
 
             
             if ( $jcvg_video_gallery_enable ){
-                return $content . '[jc_video_gallery header="'.$jcvg_videogal_heading.'" sub_header="'.$jcvg_videogal_sub_heading.'" video_gallery_id='.$jcvg_videogal_gallery_id.' video_gallery_type="'.$jcvg_video_template.'" video_per_row="'.$jcvg_video_per_row.'" video_per_page="'.$jcvg_video_per_page.'" class="'.$jcvg_class_optional.'" id="'.$jcvg_id_optional.'"]';
+                if ( $jcvg_video_gallery_display == 'above-content') {
+                    return '[jc_video_gallery header="'.$jcvg_videogal_heading.'" sub_header="'.$jcvg_videogal_sub_heading.'" video_gallery_id='.$jcvg_videogal_gallery_id.' video_gallery_type="'.$jcvg_video_template.'" video_per_row="'.$jcvg_video_per_row.'" video_per_page="'.$jcvg_video_per_page.'" text_alignment="'.$jcvg_text_alignment.'" class="'.$jcvg_class_optional.'" id="'.$jcvg_id_optional.'"]' . $content;
+                } else {
+                    return $content . '[jc_video_gallery header="'.$jcvg_videogal_heading.'" sub_header="'.$jcvg_videogal_sub_heading.'" video_gallery_id='.$jcvg_videogal_gallery_id.' video_gallery_type="'.$jcvg_video_template.'" video_per_row="'.$jcvg_video_per_row.'" video_per_page="'.$jcvg_video_per_page.'" text_alignment="'.$jcvg_text_alignment.'" class="'.$jcvg_class_optional.'" id="'.$jcvg_id_optional.'"]';
+                }
             }
             
         }
@@ -60,8 +66,9 @@ class JC_VIDEO_GALLERY{
         $plugin_dir = plugin_dir_path( __FILE__ );
         $plugin_url = plugins_url('jc-video-gallery');
     
-        wp_enqueue_style( 'custom-css-course', $plugin_url . '/assets/css/video-gallery.css' );
-        wp_enqueue_style( 'custom-css-course', $plugin_url . '/assets/css/bootstrap.min.css' );
+        wp_enqueue_style( 'custom-css-video-gallery', $plugin_url . '/assets/css/video-gallery.css' );
+        wp_enqueue_style( 'bootstrap', $plugin_url . '/assets/css/bootstrap.min.css' );
+        wp_enqueue_style( 'fontawesome', $plugin_url . '/assets/css/all.css' );
 
     }
 
