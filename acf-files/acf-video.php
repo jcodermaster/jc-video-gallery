@@ -70,6 +70,60 @@ if( function_exists('acf_add_local_field_group') ):
                         'return_format' => 'value',
                     ),
                     array(
+                        'key' => 'field_60266619f7bac',
+                        'label' => 'Title',
+                        'name' => 'jcvg_video_title',
+                        'type' => 'text',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_60266589f7bab',
+                                    'operator' => '==',
+                                    'value' => '1',
+                                ),
+                            ),
+                        ),
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                    ),
+                    array(
+                        'key' => 'field_6026663ef7bad',
+                        'label' => 'Descriptions',
+                        'name' => 'jcvg_video_descriptions',
+                        'type' => 'wysiwyg',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_60266589f7bab',
+                                    'operator' => '==',
+                                    'value' => '1',
+                                ),
+                            ),
+                        ),
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'tabs' => 'all',
+                        'toolbar' => 'full',
+                        'media_upload' => 1,
+                        'delay' => 0,
+                    ),
+                    array(
                         'key' => 'field_60100fed7f603',
                         'label' => 'Video',
                         'name' => 'video_source',
@@ -145,7 +199,7 @@ if( function_exists('acf_add_local_field_group') ):
                             ),
                         ),
                         'wrapper' => array(
-                            'width' => '',
+                            'width' => '50',
                             'class' => '',
                             'id' => '',
                         ),
@@ -204,7 +258,7 @@ if( function_exists('acf_add_local_field_group') ):
                             ),
                         ),
                         'wrapper' => array(
-                            'width' => '',
+                            'width' => '50',
                             'class' => '',
                             'id' => '',
                         ),
@@ -236,7 +290,7 @@ if( function_exists('acf_add_local_field_group') ):
                             ),
                         ),
                         'wrapper' => array(
-                            'width' => '',
+                            'width' => '50',
                             'class' => '',
                             'id' => '',
                         ),
@@ -322,7 +376,7 @@ if( function_exists('acf_add_local_field_group') ):
                             ),
                         ),
                         'wrapper' => array(
-                            'width' => '',
+                            'width' => '50',
                             'class' => '',
                             'id' => '',
                         ),
@@ -354,7 +408,7 @@ if( function_exists('acf_add_local_field_group') ):
                             ),
                         ),
                         'wrapper' => array(
-                            'width' => '',
+                            'width' => '50',
                             'class' => '',
                             'id' => '',
                         ),

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array(
@@ -77,6 +78,29 @@ if( function_exists('acf_add_local_field_group') ):
                 'prepend' => '',
                 'append' => '',
                 'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_602663915f013',
+                'label' => 'Text Alignment',
+                'name' => 'jcvg_text_alignment',
+                'type' => 'button_group',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'text-left' => 'Left',
+                    'text-center' => 'Center',
+                    'text-right' => 'Right',
+                ),
+                'allow_null' => 0,
+                'default_value' => '',
+                'layout' => 'horizontal',
+                'return_format' => 'value',
             ),
             array(
                 'key' => 'field_60262dddff518',
