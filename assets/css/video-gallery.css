@@ -6,3 +6,44 @@
 .video-row.row .video-columns .vp-img {
   width: 100%;
 }
+
+/*Section Heading*/
+
+.jcvg-heading-subheading h1,
+.jcvg-heading-subheading h4,
+.video-title h3 {
+  margin: 0px 0px !important;
+}
+.jcvg-heading-subheading {
+  margin-bottom: 40px;
+}
+.jcvg-heading-subheading h1 {
+  font-size: 40px;
+}
+
+/*Video Title and Desc*/
+.video-title-description {
+  padding-bottom: 10px;
+  padding-top: 15px;
+}
+.video-title {
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 10px;
+}
+.video-title h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.jcvg-video-icon {
+  position: absolute;
+  top: 35%;
+  left: 40%;
+}
+.jcvg-video-icon i {
+  font-size: 70px;
+  color: #fff;
+  cursor: pointer;
+}
+.jcvg-video-container {
+  position: relative;
+}
