@@ -9,10 +9,10 @@ Author: Jerome Chan
 Author URI: http://www.jcoderchan.com/
 */
 
-require_once  dirname( __FILE__ ) . '/functions/jc-video-gallery-cpt.php';
 require_once  dirname( __FILE__ ) . '/functions/functions.php';
 require_once  dirname( __FILE__ ) . '/assets/vendors/tgm/tgm-config.php';
 require_once  dirname( __FILE__ ) . '/acf-files/acf-video.php';
+require_once  dirname( __FILE__ ) . '/acf-files/acf-page-video-settings.php';
 
 class JC_VIDEO_GALLERY{
 
@@ -28,6 +28,31 @@ class JC_VIDEO_GALLERY{
             ));    
         }
 
+        function add_jcvg_to_page( $content ) {
+
+            global $post;
+
+            $postID = get_the_ID();
+
+            $jcvg_video_gallery_enable = get_field('jcvg_video_gallery_enable', $postID);
+            $jcvg_videogal_heading = get_field('jcvg_videogal_heading', $postID);
+            $jcvg_videogal_gallery_id = get_field('jcvg_videogal_gallery_id', $postID);
+            $jcvg_videogal_sub_heading = get_field('jcvg_videogal_sub_heading', $postID);
+            $jcvg_video_template = get_field('jcvg_video_template', $postID);
+            $jcvg_video_per_row = get_field('jcvg_video_per_row', $postID);
+            $jcvg_video_per_page = get_field('jcvg_video_per_page', $postID);
+            $jcvg_class_optional = get_field('jcvg_class_optional', $postID);
+            $jcvg_id_optional = get_field('jcvg_id_optional', $postID);
+
+
+            
+            if ( $jcvg_video_gallery_enable ){
+                return $content . '[jc_video_gallery header="'.$jcvg_videogal_heading.'" sub_header="'.$jcvg_videogal_sub_heading.'" video_gallery_id='.$jcvg_videogal_gallery_id.' video_gallery_type="'.$jcvg_video_template.'" video_per_row="'.$jcvg_video_per_row.'" video_per_page="'.$jcvg_video_per_page.'" class="'.$jcvg_class_optional.'" id="'.$jcvg_id_optional.'"]';
+            }
+            
+        }
+        add_filter( 'the_content', 'add_jcvg_to_page' );
+
     }
 
     function script_style(){
@@ -40,24 +65,6 @@ class JC_VIDEO_GALLERY{
 
     }
 
-    public function get_video_lightbox( $colPerRow, $videoPerpage){
-
-        
-
-        $output = NULL;
-        $output .='<div class="jc-video-gal-container">';
-            $output .='<div class="container">';
-                $output .='<div class="row">';
-
-                    
-                    
-                $output .='</div>';
-            $output .='</div>';
-        $output.='</div>';
-
-    }
-
-    
 
 }
 new JC_VIDEO_GALLERY();
