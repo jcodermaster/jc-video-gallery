@@ -1,0 +1,8 @@
+/*Video Gallery Style*/
+
+.video-row.row .video-columns {
+  margin-bottom: 30px;
+}
+.video-row.row .video-columns .vp-img {
+  width: 100%;
+}
