@@ -86,9 +86,17 @@ if( function_exists('acf_add_local_field_group') ):
                 'type' => 'button_group',
                 'instructions' => '',
                 'required' => 0,
-                'conditional_logic' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6026306a31de9',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
                 'wrapper' => array(
-                    'width' => '',
+                    'width' => '50',
                     'class' => '',
                     'id' => '',
                 ),
@@ -96,6 +104,36 @@ if( function_exists('acf_add_local_field_group') ):
                     'text-left' => 'Left',
                     'text-center' => 'Center',
                     'text-right' => 'Right',
+                ),
+                'allow_null' => 0,
+                'default_value' => '',
+                'layout' => 'horizontal',
+                'return_format' => 'value',
+            ),
+            array(
+                'key' => 'field_602671e659fbc',
+                'label' => 'Video Gallery Display',
+                'name' => 'jcvg_video_gallery_display',
+                'type' => 'button_group',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6026306a31de9',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+                'wrapper' => array(
+                    'width' => '50',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'above-content' => 'Above Content',
+                    'below-content' => 'Below Content',
                 ),
                 'allow_null' => 0,
                 'default_value' => '',
