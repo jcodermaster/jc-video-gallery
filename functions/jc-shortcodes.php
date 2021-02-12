@@ -15,10 +15,10 @@ class JC_VIDEO_SHORTCODES{
             'class'               => 'video-gallery-container'
         ), $atts );
 
-        $colClass = get_column_class($a['video_per_row']);
+        $colClass = $this->get_column_class($a['video_per_row']);
         $v_query = new WP_Query( array(
-                        'post_type'        => 'jc-video-gallery', 
-                        'p'                => $a['video_gallery_id']
+                        'post_type'   => 'video-gallery', 
+                        'p'           => $a['video_gallery_id']
                         ) );
 
         ob_start(); 
@@ -39,11 +39,30 @@ class JC_VIDEO_SHORTCODES{
                             $upload_youtube_image = get_sub_field('upload_youtube_image');
                             $youtube_video_external_url = get_sub_field('youtube_video_external_url');
                             $youtube_video = get_sub_field('youtube_video');
+
+                            if ( !empty($youtube_video) ) {
+                                $yt_id = $youtube_video;
+                            }
+
+                            if ( $youtube_preview_image ) {
+                                $vid_preview_url = $upload_youtube_image;
+                            } else if ( !empty($youtube_video_external_url) ) {
+                                $vid_preview_url = $youtube_video_external_url;
+                            } else {
+                                $vid_preview_url = 'https://img.youtube.com/vi/'.$yt_id.'/mqdefault.jpg';
+                            }
+                            if ( $type_of_video == 'youtube_video'){
+                                $vid_url = 'https://www.youtube.com/watch?v='.$yt_id;
+                            } else if ( $type_of_video == 'mp4_video' ) {
+                                $vid_url = $video_source;
+                            }
+                            
+
                     ?>
                         <div class="video-columns <?php echo $colClass; ?>">
-                            <?php echo do_shortcode('[video_popup url="" img=""]');?>
+                            <?php echo do_shortcode('[video_popup url="'.$vid_url.'" img="'.$vid_preview_url.'"]');?>
                         </div>
-                    <?php endwhile; ?>
+                    <?php endwhile; wp_reset_query();?>
                 <?php endif; ?>
             </div>
         </div>
