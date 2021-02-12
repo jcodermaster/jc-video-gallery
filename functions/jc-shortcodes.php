@@ -11,6 +11,7 @@ class JC_VIDEO_SHORTCODES{
             'video_gallery_type'  => 'grid',
             'video_per_row'       => '3',
             'video_per_page'      => '-1',
+            'text_alignment'      => '',
             'no_list_msg'         => 'No Video Found',
             'class'               => 'video-gallery-container',
             'id'                  => '',
@@ -44,6 +45,8 @@ class JC_VIDEO_SHORTCODES{
                                 $upload_youtube_image = get_sub_field('upload_youtube_image');
                                 $youtube_video_external_url = get_sub_field('youtube_video_external_url');
                                 $youtube_video = get_sub_field('youtube_video');
+                                $jcvg_video_title = get_sub_field('jcvg_video_title');
+                                $jcvg_video_descriptions = get_sub_field('jcvg_video_descriptions');
 
                                 if ( !empty($youtube_video) ) {
                                     $yt_id = $youtube_video;
@@ -64,8 +67,22 @@ class JC_VIDEO_SHORTCODES{
                                 
 
                         ?>
-                            <div class="video-columns <?php echo $colClass; ?>">
-                                <?php echo do_shortcode('[video_popup url="'.$vid_url.'" img="'.$vid_preview_url.'"]');?>
+                            <div class="video-columns <?php echo $colClass .' '. $a['text_alignment']; ?>">
+                                <div class="jcvg-video-container">
+                                    <div class="video-overlay"></div>
+                                    <?php echo do_shortcode('[video_popup url="'.$vid_url.'" img="'.$vid_preview_url.'"]');?>
+                                    <div class="jcvg-video-icon">
+                                        <i class="fas fa-play-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="video-title-description">
+                                    <div class="video-title">
+                                        <h3><?php echo $jcvg_video_title; ?></h3>
+                                    </div>
+                                    <div class="video-description">
+                                        <p><?php echo $jcvg_video_descriptions; ?></p>
+                                    </div>
+                                </div>
                             </div>
                         <?php endwhile; wp_reset_query();?>
                     <?php endif; ?>
